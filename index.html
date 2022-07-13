@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <!-- Google search console -->
+    <meta name="google-site-verification" content="JVnAZQ5_-AuZOb0JhGm53t0UaLmq8ycyikotaO22kO4" />
+
     <!-- Meta Tag -->
     <!-- Primary Meta Tags -->
     <meta name="title" content="Kansong Metaverse Museum - connecting the past and future" />
@@ -26,7 +29,7 @@
       property="og:description"
       content="Kansong Metaverse Museum aims to globalize Korean cultural assets with the hands of Korean citizens and global communities through blockchain DAO and Metaverse."
     />
-    <meta property="og:image" content="http://kansong.io/img/nft-full.jpg" />
+    <meta property="og:image" content="img\nft-full.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -36,7 +39,7 @@
       property="twitter:description"
       content="Kansong Metaverse Museum aims to globalize Korean cultural assets with the hands of Korean citizens and global communities through blockchain DAO and Metaverse."
     />
-    <meta property="twitter:image" content="http://kansong.io/img/nft-full.jpg" />
+    <meta property="twitter:image" content="img\nft-full.jpg" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Kansong Metaverse Museum - connecting the past and future" />
@@ -44,7 +47,7 @@
       name="twitter:description"
       content="Kansong Metaverse Museum aims to globalize Korean cultural assets with the hands of Korean citizens and global communities through blockchain DAO and Metaverse."
     />
-    <meta name="twitter:image" content="http://kansong.io/img/nft-full.jpg" />
+    <meta name="twitter:image" content="img\nft-full.jpg" />
     <meta name="twitter:site" content="http://kansong.io/" />
     <!-- Meta Tag End -->
 
@@ -52,6 +55,7 @@
     <script src="./js/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/grid.css" />
+    <link rel="stylesheet" href="./css/media.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/ScrollTrigger.css" />
     <script type="text/javascript" src="./js/ScrollTrigger.js"></script>
@@ -90,17 +94,17 @@
 
       <div class="header-right-btn">
 
-        <!-- <div id="btn-mintingInfo">
+        <div class="lang" id="btn-Lang">
+          <button onclick='changeLanguage("ko")' id="lang">KO</button>
+        </div>
+
+        <div id="btn-mintingInfo">
           <a href="mintingInfo.html" target="_self">
             NFT Mint
           </a>
-        </div> -->
-
-        <div id="btn-mintingInfo">
-          <a id="connectButton" onclick="bundle.connect()" target="_self">
-            Connect Wallet
-          </a>
         </div>
+
+        <!--<button type="button" name="button">EN</button>-->
 
         <div id="btn-album">
           <a href="imglistpage.html" target="_blank">
@@ -119,20 +123,6 @@
         </button>
       </div>
     </header>
-
-    <div id="walletModal" class="modal" style="display:none;">
-      <div class="modal_content" 
-           title="주소입력 모달창">
-           <input type="text" id="postcode" placeholder="우편번호">
-           <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-           <input type="text" id="address" placeholder="주소"><br>
-           <input type="text" id="detailAddress" placeholder="상세주소">
-           <input type="text" id="extraAddress" placeholder="참고항목">
-           <div id="ethBalance" value=""></div><div id="userAddress" value=""></div>
-        <button class="submit">submit</button>
-        <button class="cancel">cancel</button>
-      </div>
-    </div>
 
     <script type="text/javascript">
       $(function () {
@@ -160,6 +150,7 @@
         <li><a href="#DigitalRebirthEvents">Digital Rebirth Events</a></li>
         <li><a href="#NFTs">NFTs</a></li>
         <li><a href="#DigitalExpansionPlan">Digital Expansion Plan</a></li>
+        <li><a href="#Media">Media</a></li>
         <!-- <li><a href="#Roadmap">Roadmap</a></li> -->
         <li><a href="#Team">Team</a></li>
         <li><a href="#Partner">Partner</a></li>
@@ -182,11 +173,11 @@
           </video>
         </div>
         <div class="textarea grid">
-          <h1 data-scroll="toggle(.fromLeftIn, .fromLeftOut)">
+          <div id="sub_h1" data-scroll="toggle(.fromLeftIn, .fromLeftOut)">
             <p>Kansong</p>
             <span id="typing"></span>
             <p>Museum</p>
-          </h1>
+          </div>
         </div>
       </div>
     </section>
@@ -224,36 +215,36 @@
         <div class="imgarea">
           <div class="swiper mySwiper swiper-container">
             <ul class="swiper-wrapper">
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/001.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/002.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/003.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/004.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/005.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/006.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/007.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/008.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/009.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/010.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/011.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/012.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/013.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/014.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/015.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/016.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/017.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/018.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/019.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/020.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/021.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/022.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/023.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/024.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/025.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/026.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/027.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/028.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/029.jpg" alt="" class="swiper-lazy" /></li>
-              <li class="swiper-slide"><img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/introduction/030.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\001.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\002.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\003.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\004.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\005.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\006.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\007.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\008.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\009.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\010.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\011.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\012.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\013.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\014.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\015.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\016.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\017.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\018.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\019.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\020.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\021.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\022.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\023.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\024.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\025.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\026.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\027.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\028.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\029.jpg" alt="" class="swiper-lazy" /></li>
+              <li class="swiper-slide"><img src="img\introduction\030.jpg" alt="" class="swiper-lazy" /></li>
             </ul>
           </div>
         </div>
@@ -270,82 +261,82 @@
           <ul id="masonry" class="masonry">
             <div class="grid-sizer"></div>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/01.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
+              <img src="img\mycharacters\01.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/02.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\02.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/03.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
+              <img src="img\mycharacters\03.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/04.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
+              <img src="img\mycharacters\04.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/05.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\05.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/06.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
+              <img src="img\mycharacters\06.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/10.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\10.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/09.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
+              <img src="img\mycharacters\09.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/07.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
+              <img src="img\mycharacters\07.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/08.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\08.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/11.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
+              <img src="img\mycharacters\11.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/15.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\15.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/19.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
+              <img src="img\mycharacters\19.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/12.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\12.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/16.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
+              <img src="img\mycharacters\16.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/17.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\17.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/13.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
+              <img src="img\mycharacters\13.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/18.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\18.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/20.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
+              <img src="img\mycharacters\20.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/21.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\21.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/22.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
+              <img src="img\mycharacters\22.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/23.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\23.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/24.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
+              <img src="img\mycharacters\24.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/25.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
+              <img src="img\mycharacters\25.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/14.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\14.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
             <li class="masonry-item">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/mycharacters/26.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
+              <img src="img\mycharacters\26.jpg" alt="" data-scroll="toggle(.scaleDownIn, .scaleDownOut)" />
             </li>
           </ul>
         </div>
@@ -379,7 +370,7 @@
           <ul class="col-12 grid">
             <li data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3">
               <div>
-                <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/nft-full.jpg" alt="" />
+                <img src="img\nft-full.jpg" alt="" />
               </div>
               <div>
                 <p class="NFTs-typeNum">Type 1</p>
@@ -391,7 +382,7 @@
 
             <li data-scroll="toggle(.scaleDownIn, .scaleDownOut)">
               <div>
-                <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/nft-fullbody.jpg" alt="" />
+                <img src="img\nft-fullbody.jpg" alt="" />
               </div>
               <div>
                 <p class="NFTs-typeNum">Type 2</p>
@@ -403,7 +394,7 @@
 
             <li data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5">
               <div>
-                <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/nft-bust.jpg" alt="" />
+                <img src="img\nft-bust.jpg" alt="" />
               </div>
               <div>
                 <p class="NFTs-typeNum">Type 3</p>
@@ -415,7 +406,7 @@
 
             <li data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-5">
               <div>
-                <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/nft-head.jpg" alt="" />
+                <img src="img\nft-head.jpg" alt="" />
               </div>
               <div>
                 <p class="NFTs-typeNum">Type 4</p>
@@ -427,7 +418,7 @@
 
             <li data-scroll="toggle(.scaleDownIn, .scaleDownOut)">
               <div>
-                <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/nft-face.jpg" alt="" />
+                <img src="img\nft-face.jpg" alt="" />
               </div>
               <div>
                 <p class="NFTs-typeNum">Type 5</p>
@@ -439,7 +430,7 @@
 
             <li data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="delay-3">
               <div>
-                <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/nft-obj.jpg" alt="" />
+                <img src="img\nft-obj.jpg" alt="" />
               </div>
               <div>
                 <p class="NFTs-typeNum">Type 6</p>
@@ -461,17 +452,19 @@
 
         <div class="imgarea grid">
           <div id="thesandbox">
+            <h3 data-scroll="toggle(.fromTopIn, .fromTopOut)">Metaverse Evolution</h3>
+
             <p class="expansion-banner" data-scroll="toggle(.fromBottomIn, .fromBottomOut)">
-              <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/expansion-banner-thesandbox_new.jpg" alt="" />
+              <img src="img\expansion-banner-thesandbox_new.jpg" alt="" />
             </p>
-            <div class="Expansion-img">
+            <div class="Expansion-img thesandbox-img">
               <div class="Expansion-img-1 thesandbox-img-1" data-scroll="toggle(.scaleDownIn, .scaleDownOut)">
                 <div>
                   <video autoplay loop muted>
                     <source src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/Danopungjeong.mp4" type="video/mp4" />
                   </video>
                 </div>
-                <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/yb017002006.jpg" alt="" />
+                <img src="img\yb017002006.jpg" alt="" />
               </div>
 
               <div class="Expansion-img-2 thesandbox-img-2" data-scroll="toggle(.scaleDownIn, .scaleDownOut)">
@@ -482,11 +475,39 @@
                     </video>
                   </div>
                 </div>
-                <img src="https://kansong-image-collection.s3.ap-northeast-2.amazonaws.com/img/yb017002004.jpg" alt="" />
+                <img src="img\yb017002004.jpg" alt="" />
               </div>
             </div>
           </div>
+
+          <div id="Homage">
+            <h3 data-scroll="toggle(.fromTopIn, .fromTopOut)">Homage to Hyewon</h3>
+
+            <div class="Expansion-img">
+              <div class="partner_hth Expansion-img-1" data-scroll="toggle(.scaleDownIn, .scaleDownOut)">
+                <img src="img\partner\zbz650.jpg" alt="" />
+              </div>
+              <div class="partner_hth Expansion-img-2" data-scroll="toggle(.scaleDownIn, .scaleDownOut)">
+                <img src="img\partner\ydw650.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section>
+
+    <section id="Media" class="section7">
+      <div class="Container">
+        <div class="textarea">
+          <h2 data-scroll="toggle(.fromTopIn, .fromTopOut)">Media</h2>
+          <h1 id="main_h1" data-scroll="toggle(.fromTopIn, .fromTopOut)">Kansong Metaverse Museum</h1>
+        </div>
+
+        <div class="imgarea" data-scroll="toggle(.scaleDownIn, .scaleDownOut)">
+          <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" class="subtitle delay-3">
+            Coming Soon
+          </p>
       </div>
     </section>
 
@@ -649,21 +670,21 @@
       </div>
     </section>
 
-    <section>
+    <section id="footer">
       <div class="nft_termsofsale">
-        <a href="NFT_terms_of_sale_6.3.pdf" target="_blank">NFT 판매 약관</a>
+        <a href="NFT_terms_of_sale_6.3.pdf" target="_blank">
+          <img src="./img/icon-link.svg" alt="">
+          NFT Terms of Sale
+        </a>
       </div>
     </section>
 
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="./js/postcode.js" type="text/javascript"></script>
     <script type="text/javascript" src="./js/base.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/locales.js"></script>
     <script src="./js/jquery.malihu.PageScroll2id.js"></script>
     <script src="./js/jquery-syaku.rolling.js"></script>
     <script src="https://www.cssscript.com/demo/simple-typewriter-effect-pure-javascript-typewriterjs/typewriter.js"></script>
-    <script src="./dist/bundle.js" type="text/javascript"></script>
-    <script src="./js/firebase.js" type="module" type="text/javascript"></script>
-  
+
   </body>
 </html>

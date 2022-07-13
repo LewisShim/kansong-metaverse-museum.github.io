@@ -21,9 +21,7 @@ function execDaumPostcode() {
         if (extraAddr !== "") {
           extraAddr = " (" + extraAddr + ")";
         }
-        document.getElementById("extraAddress").value = extraAddr;
       } else {
-        document.getElementById("extraAddress").value = "";
       }
       document.getElementById("postcode").value = data.zonecode;
       document.getElementById("address").value = addr;

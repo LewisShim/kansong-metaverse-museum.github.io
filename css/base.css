@@ -193,6 +193,14 @@ h1 {
   text-transform:uppercase ;
 }
 
+#sub_h1{
+  font-size: var(--font-size-main);
+  line-height: 1;
+  text-align: left;
+  text-transform:uppercase ;
+}
+
+
 h2 {
   /* font-family: kepler-std-display, serif; */
   font-size: var(--font-size-title);
@@ -325,6 +333,14 @@ header.on .header-right-btn a:hover svg {
   filter: drop-shadow(0px 0px 2px rgba(180, 67, 50, 0.7));
 }
 
+header #btn-Lang button{
+  text-align: center;
+  padding:0.8rem 1.6rem;
+  border-radius: 4px;
+  font-size:var(--font-size-small);
+  font-weight: 500;
+}
+
 header #btn-mintingInfo a{
   text-align: center;
   padding:0.8rem 1.6rem;
@@ -419,6 +435,9 @@ aside.on a:hover svg {
     margin-top: 28px;
   }
   h1 {
+    font-size: var(--font-size-main-m);
+  }
+  #sub_h1{
     font-size: var(--font-size-main-m);
   }
   h2 {
