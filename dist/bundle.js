@@ -1106,6 +1106,12 @@ async function connect() {
       const accounts = await ethereum.request({ method: "eth_accounts" });
       const address = accounts.toString();
 
+      let chainId = await ethereum.request({ method: "eth_chainId" });
+
+      if (chainId !== 4) {
+        await switchChain();
+      }
+
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const nftInstance = new ethers.Contract(
@@ -1118,21 +1124,16 @@ async function connect() {
       const nftBalance = ethers.utils.formatEther(nftBal) * 10 ** 18;
 
       if (nftBalance >= 1) {
-        let chainId = await ethereum.request({ method: "eth_chainId" });
         let viewBal = document.getElementById("nftBalance");
         viewBal.innerHTML = nftBalance;
         let walletAddress = document.getElementById("userAddress");
         walletAddress.innerHTML = address;
 
         console.log(nftBalance, address);
-        if (chainId == 4) {
-          let delivery = document.querySelector(".delivery");
-          delivery.style.display = "block";
-          let korea = document.getElementById("korea");
-          korea.style.display = "block";
-        } else {
-          alert("please change to mainnet");
-        }
+        let delivery = document.querySelector(".delivery");
+        delivery.style.display = "block";
+        let korea = document.getElementById("korea");
+        korea.style.display = "block";
       } else {
         alert("There must be at least one NFT.");
       }
@@ -1143,6 +1144,17 @@ async function connect() {
   } else {
     document.getElementById("connectButton").innerHTML =
       "Please install MetaMask";
+  }
+}
+
+async function switchChain() {
+  try {
+    await ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0x" + "4".toString(16) }],
+    });
+  } catch (e) {
+    console.log(e);
   }
 }
 
