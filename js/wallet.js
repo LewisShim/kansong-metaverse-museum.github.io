@@ -37,7 +37,7 @@ async function connect() {
         let korea = document.getElementById("korea");
         korea.style.display = "block";
       } else {
-        alert("There must be at least one NFT.");
+        alert("Sorry. You have no NFT.");
       }
     } catch (error) {
       console.log(error);
