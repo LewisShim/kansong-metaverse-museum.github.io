@@ -172,9 +172,10 @@
                   <input type="text" id="o_postcode" placeholder="Zip Code" onfocus="this.placeholder=''" onblur="this.placeholder='Zip Code'" value="">
                 </div>
 
-                <div>
+                <div class="email">
                   <p>E-mail</p>
                   <input type="email" id="o_email" placeholder="E-mail" onfocus="this.placeholder=''" onblur="this.placeholder='E-mail'" value="">
+                  <span class="caption">* If the delivery address is overseas, a separate delivery fee is charged. Delivery charges will be notified via personal email.</span>
                 </div>
 
                 <div>
@@ -208,10 +209,10 @@
     <script>
       for(let i = 0; i < country.length; i++) {
         const newOption = document.createElement("option");
-        newOption.value = country[i].dial_code; 
+        newOption.value = country[i].dial_code;
         newOption.textContent = country[i].name
         document.getElementsByTagName("select")[0].appendChild(newOption);
-        
+
       }
 
       function getselect() {
