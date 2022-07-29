@@ -2531,7 +2531,7 @@ async function connect() {
 
       let chainId = await ethereum.request({ method: "eth_chainId" });
 
-      if (chainId !== 4) {
+      if (chainId !== 5) {
         await switchChain();
       }
 
@@ -2619,7 +2619,7 @@ async function switchChain() {
   try {
     await ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: "0x" + "4".toString(16) }],
+      params: [{ chainId: "0x" + "5".toString(16) }],
     });
   } catch (e) {
     console.log(e);
