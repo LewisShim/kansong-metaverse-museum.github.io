@@ -1,6 +1,10 @@
 const { ethers } = require("ethers");
 let { nftAbi_rinkeby } = require("../contractabi/ntfAbi_rinkeby");
-
+let { ntfAbi_eth_mainnet } = require("../contractabi/ntfAbi_eth_mainnet");
+let { nftAbi_georli } = require("../contractabi/nftAbi_georli");
+let rinkebyContractAddress = "0xc89E09e68DEa544aBff8A4d744085De8fFc55e08";
+let contractAddess = "0x82f58182bE996DF3F8B9922dFa0e8F8aCf71f76C";
+let georliAddress = "0xde480369277B75E8922ad1c99Bf09C6e70634545";
 async function connect() {
   if (typeof window.ethereum !== "undefined") {
     try {
@@ -17,8 +21,8 @@ async function connect() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const nftInstance = new ethers.Contract(
-        "0xc89E09e68DEa544aBff8A4d744085De8fFc55e08",
-        nftAbi_rinkeby,
+        georliAddress,
+        nftAbi_georli,
         signer
       );
 
@@ -31,13 +35,58 @@ async function connect() {
         let walletAddress = document.getElementById("userAddress");
         walletAddress.innerHTML = address;
 
-        console.log(nftBalance, address);
-        let delivery = document.querySelector(".delivery");
-        delivery.style.display = "block";
-        let korea = document.getElementById("korea");
-        korea.style.display = "block";
+        let userArr = localStorage.getItem("arr1");
+        userArr = JSON.parse(userArr);
+        let o_userArr = localStorage.getItem("arr2");
+        o_userArr = JSON.parse(o_userArr);
+
+        if (userArr.find((item) => item == address)) {
+          let imgFrame = document.querySelector(".imgFrame");
+          imgFrame.style.display = "none";
+          let youTubeFrame = document.querySelector(".youTubeFrame");
+          youTubeFrame.style.display = "none";
+          let Submit_result_ko = document.querySelector(".Submit_result_ko");
+          Submit_result_ko.style.display = "block";
+          let tubeFrame = document.querySelector(".tubeFrame");
+          tubeFrame.style.display = "block";
+          let explain = document.getElementById("explain");
+          explain.style.display = "none";
+          let korea = document.getElementById("korea");
+          korea.style.display = "none";
+          $("#connectButton").hide();
+        } else if (o_userArr.find((item) => item == address)) {
+          let imgFrame = document.querySelector(".imgFrame");
+          imgFrame.style.display = "none";
+          let youTubeFrame = document.querySelector(".youTubeFrame");
+          youTubeFrame.style.display = "none";
+          let Submit_result_en = document.querySelector(".Submit_result_en");
+          Submit_result_en.style.display = "block";
+          let tubeFrame = document.querySelector(".tubeFrame");
+          tubeFrame.style.display = "block";
+          let explain = document.getElementById("explain");
+          explain.style.display = "none";
+          let korea = document.getElementById("korea");
+          korea.style.display = "none";
+          $("#connectButton").hide();
+        } else {
+          let myInfo = document.querySelector(".myInfo");
+          myInfo.style.display = "block";
+          let delivery = document.querySelector(".delivery");
+          delivery.style.display = "block";
+          let korea = document.getElementById("korea");
+          korea.style.display = "block";
+          let explain = document.getElementById("explain");
+          explain.style.display = "none";
+          $("#connectButton").hide();
+        }
       } else {
-        alert("Sorry. You have no NFT.");
+        let no_nft = document.querySelector(".no_nft");
+        no_nft.style.display = "block";
+        let currentAddress = document.getElementById("currentAddress");
+        currentAddress.innerHTML = address;
+        let explain = document.getElementById("explain");
+        explain.style.display = "none";
+        $("#connectButton").hide();
       }
     } catch (error) {
       console.log(error);

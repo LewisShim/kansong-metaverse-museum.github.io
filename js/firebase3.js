@@ -32,34 +32,98 @@ let o_userArr = [];
 const querySnapshot = await getDocs(collection(db, "address"));
 querySnapshot.forEach((doc) => {
   userArr.push(doc.data()["userAddress"]);
-  let userArr1 = JSON.stringify(userArr);
-  localStorage.setItem("arr1", userArr1);
+  document.getElementById("userArrProps").innerHTML = userArr;
 });
 
 const o_querySnapshot = await getDocs(collection(db, "o_address"));
 o_querySnapshot.forEach((doc) => {
   o_userArr.push(doc.data()["userAddress"]);
-  let userArr2 = JSON.stringify(o_userArr);
-  localStorage.setItem("arr2", userArr2);
+  document.getElementById("o_userArrProps").innerHTML = o_userArr;
 });
 
 const colRef = collection(db, "address");
 const userAddress = document.getElementById("userAddress").innerHTML;
 const q = await query(colRef, where("userAddress", "==", userAddress));
+
 const snapshot = await getDocs(q);
 
 snapshot.forEach((doc) => {
-  console.log(doc.id);
-  let modi_name = document.getElementById("modi_name");
+  console.log(doc.id, "->", doc.data()["userName"]);
+
+  let modi_name = document.querySelector(".modi_name");
   modi_name.innerHTML = doc.data()["userName"];
-  let modi_phoneNumber = document.getElementById("modi_phoneNumber");
+  let modi_phoneNumber = document.querySelector(".modi_phoneNumber");
   modi_phoneNumber.innerHTML = doc.data()["phoneNumber"];
-  let modi_postcode = document.getElementById("modi_postcode");
+  let modi_postcode = document.querySelector(".modi_postcode");
   modi_postcode.innerHTML = doc.data()["postcode"];
-  let modi_address = document.getElementById("modi_address");
+  let modi_address = document.querySelector(".modi_address");
   modi_address.innerHTML = doc.data()["address"];
-  let modi_detailAddress = document.getElementById("modi_detailAddress");
+  let modi_detailAddress = document.querySelector(".modi_detailAddress");
   modi_detailAddress.innerHTML = doc.data()["detailAddress"];
+});
+
+// 데이터 수정하기
+const modi = document.querySelector(".modify");
+modi.addEventListener("click", (event) => {
+  console.log("modi clcked");
+  let modify = document.getElementById("modify");
+  modify.style.display = "block";
+  let Submit_result_ko = document.querySelector(".Submit_result_ko");
+  Submit_result_ko.style.display = "none";
+});
+const modifyForm = document.querySelector(".modifyForm");
+
+modifyForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("modi2222");
+  const m_userName = document.getElementById("m_userName").value;
+  const m_phoneNumber = formatPhoneNumber(
+    document.getElementById("m_phoneNumber").value
+  );
+  const m_postcode = document.getElementById("m_postcode").value;
+  const m_address = document.getElementById("m_address").value;
+  const m_detailAddress = document.getElementById("m_detailAddress").value;
+  const nftBalance = document.getElementById("nftBalance").innerHTML;
+  const userAddress = document.getElementById("userAddress").innerHTML;
+
+  if (
+    m_postcode !== "" &&
+    m_detailAddress !== "" &&
+    m_userName !== "" &&
+    m_phoneNumber !== "" &&
+    m_address !== ""
+  ) {
+    try {
+      const colRef = collection(db, "address");
+      const userAddress = document.getElementById("userAddress").innerHTML;
+      const qu = await query(colRef, where("userAddress", "==", userAddress));
+      const snapshot2 = await getDocs(qu);
+      let modifyID;
+      snapshot2.forEach((doc) => {
+        console.log(doc.id, "->", doc.data()["userName"]);
+        modifyID = doc.id;
+      });
+      console.log(modifyID)
+      try {
+        const mRef = doc(db, "address", modifyID);
+        updateDoc(mRef, {
+          userName: m_postcode,
+          phoneNumber: m_detailAddress,
+          postcode: m_userName,
+          address: m_phoneNumber,
+          detailAddress: m_address,
+          nftBalance: nftBalance,
+          userAddress: userAddress,
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  } else {
+    alert("Please enter all shipping information");
+  }
 });
 
 // 데이터 보내기
